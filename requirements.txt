@@ -4,7 +4,6 @@ Pillow
 nltk 
 sklearn 
 joblib
-warnings
 re 
 emoji
 pandas
