@@ -1,0 +1,12 @@
+streamlit
+snscrape == 0.6.2.20230320
+Pillow
+nltk 
+sklearn 
+joblib
+re 
+emoji
+pandas
+matplotlib
+cleantext
+streamlit_option_menu
