@@ -1,6 +1,5 @@
 streamlit
 snscrape
-os
 PIL 
 string
 nltk 
