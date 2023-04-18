@@ -1,7 +1,6 @@
 streamlit
 snscrape == 0.6.2.20230320
 Pillow
-string
 nltk 
 sklearn 
 joblib
