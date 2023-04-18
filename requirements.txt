@@ -1,0 +1,15 @@
+streamlit
+snscrape
+os
+PIL 
+string
+nltk 
+sklearn 
+joblib
+warnings
+re 
+emoji
+pandas
+matplotlib
+cleantext
+streamlit_option_menu
