@@ -10,6 +10,7 @@ from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 import joblib
 import warnings
+import sklearn
 import re
 import emoji
 import pandas as pd
