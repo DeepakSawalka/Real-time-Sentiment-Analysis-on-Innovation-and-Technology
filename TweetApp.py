@@ -7,10 +7,10 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
+import sklearn
 from sklearn.feature_extraction.text import TfidfVectorizer
 import joblib
 import warnings
-import sklearn
 import re
 import emoji
 import pandas as pd
