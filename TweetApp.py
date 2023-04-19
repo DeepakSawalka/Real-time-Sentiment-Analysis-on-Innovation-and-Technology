@@ -26,6 +26,8 @@ def set_favicon():
 
 set_favicon()
 
+
+
 # Initialize a TfidfVectorizer object
 vect = TfidfVectorizer()
 
@@ -63,7 +65,8 @@ with st.sidebar:
         icons=['house-door-fill','twitter','card-text','file-earmark-post-fill','bar-chart-fill','file-earmark-word'],
         menu_icon='cast',
         default_index=0,)
-    
+
+
        
 if selected == "Tweets Live Analysis":
 
