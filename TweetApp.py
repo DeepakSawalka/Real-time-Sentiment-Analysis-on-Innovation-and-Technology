@@ -18,6 +18,7 @@ import matplotlib.pyplot as plt
 import cleantext
 from streamlit_option_menu import option_menu
 
+
 warnings.filterwarnings('ignore')
 
 def set_favicon():
@@ -75,6 +76,11 @@ if selected == "Tweets Live Analysis":
         tweets = []
         for tweet in twitter.TwitterSearchScraper(query + ' lang:en').get_items():
             tweet_text = tweet.content
+            # Remove emojis
+            tweet_text = emoji.demojize(tweet_text)
+
+            # Remove words starting with 'https'
+            tweet_text = re.sub(r'https\S+', '', tweet_text)
             cleaned_tweet = cleantext.clean(tweet_text, clean_all=False, extra_spaces=True, stopwords=True, lowercase=True, numbers=True, punct=True)
             sentiment = predict_sentiment(cleaned_tweet)
             tweets.append({'Text': tweet_text, 'Cleaned Text': cleaned_tweet, 'Sentiment': sentiment})
@@ -132,6 +138,11 @@ if selected == "Text Analysis":
     with st.expander('Analyze Text'):
         text = st.text_input('Text here: ')
         if text:
+            # Remove emojis
+            text = emoji.demojize(text)
+
+            # Remove words starting with 'https'
+            text = re.sub(r'https\S+', '', text)
         # Clean the input text
             cleaned_text = cleantext.clean(text,clean_all= False, extra_spaces=True ,
                                  stopwords=True ,lowercase=True ,numbers=True , punct=True)
@@ -153,7 +164,8 @@ if selected == "Text Analysis":
 
         pre = st.text_input('Clean Text: ')
         if pre: 
-            st.write(cleaned_text)
+            st.write(cleantext.clean(pre, clean_all= False, extra_spaces=True ,
+                                 stopwords=True ,lowercase=True ,numbers=True , punct=True))
     # code for text analysis
 
     
