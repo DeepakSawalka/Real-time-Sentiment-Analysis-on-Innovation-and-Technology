@@ -13,6 +13,7 @@ import joblib
 import warnings
 import re
 import emoji
+import tweepy
 import pandas as pd
 import matplotlib.pyplot as plt
 import cleantext
@@ -72,21 +73,28 @@ with st.sidebar:
 if selected == "Tweets Live Analysis":
 
     # Function to get tweets based on keyword or hashtag
+    consumer_key="vJM8sSBSTm4Vjjd2RDtclyW17"
+    consumer_secret="XnpVq8YBoDUHaFTUbzV9Ssbmz8Jg7HQvoVfvw9eB8srM3Zzde5"
+    access_token="1588319442013868032-HdyIhImvMPWsBJ05XiwGZcBGppesGp"
+    access_token_secret="hPwsQc85qHTJRLeafGPll1dqsTg1d6NNbsmuZ20DJPNe3"
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    api = tweepy.API(auth)
+
     def get_tweets(query):
         tweets = []
-        for tweet in twitter.TwitterSearchScraper(query + ' lang:en').get_items():
-            tweet_text = tweet.content
-            # Remove emojis
+        for tweet in tweepy.Cursor(api.search_tweets, q=query, lang='en').items(20):
+            tweet_text = tweet.text
+        # Remove emojis
             tweet_text = emoji.demojize(tweet_text)
 
-            # Remove words starting with 'https'
+        # Remove words starting with 'https'
             tweet_text = re.sub(r'https\S+', '', tweet_text)
             cleaned_tweet = cleantext.clean(tweet_text, clean_all=False, extra_spaces=True, stopwords=True, lowercase=True, numbers=True, punct=True)
             sentiment = predict_sentiment(cleaned_tweet)
             tweets.append({'Text': tweet_text, 'Cleaned Text': cleaned_tweet, 'Sentiment': sentiment})
-            if len(tweets) == 20:
-                break
         return tweets
+
 
     # Set up Streamlit app
     st.title('Twitter Search')
