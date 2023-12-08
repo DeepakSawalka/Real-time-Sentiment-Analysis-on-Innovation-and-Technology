@@ -73,10 +73,10 @@ with st.sidebar:
 if selected == "Tweets Live Analysis":
 
     # Function to get tweets based on keyword or hashtag
-    consumer_key="vJM8sSBSTm4Vjjd2RDtclyW17"
-    consumer_secret="XnpVq8YBoDUHaFTUbzV9Ssbmz8Jg7HQvoVfvw9eB8srM3Zzde5"
-    access_token="1588319442013868032-HdyIhImvMPWsBJ05XiwGZcBGppesGp"
-    access_token_secret="hPwsQc85qHTJRLeafGPll1dqsTg1d6NNbsmuZ20DJPNe3"
+    consumer_key="rgMZ3gGarUW7qRU8V6kGg4gLe"
+    consumer_secret="phIqR9H9EkiWernvPxBqNHcWTrx0OU4bXKO2YM7Ou9Pqx7vAUc"
+    access_token="1588319442013868032-XPlgZxx4JYOCPbEnRZj4EVhIhJpgOH"
+    access_token_secret="stJFhX0JJTgQDMbmAacAhCb1oFBnX9uIuIUAHvGOabVvt"
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth)
