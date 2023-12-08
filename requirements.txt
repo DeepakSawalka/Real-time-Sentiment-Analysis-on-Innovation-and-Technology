@@ -3,8 +3,7 @@ tweepy
 snscrape == 0.6.2.20230320
 Pillow
 nltk 
-scikit-learn
-sklearn 
+scikit-learn 
 joblib 
 emoji
 pandas
