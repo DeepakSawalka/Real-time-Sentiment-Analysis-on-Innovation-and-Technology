@@ -34,7 +34,7 @@ set_favicon()
 vect = TfidfVectorizer()
 
 # Load your trained model
-model = joblib.load('lr_model.joblib')
+model = joblib.load('lstm_model.joblib')
 
 # Load the vocabulary and idf values from the trained TfidfVectorizer
 vect= joblib.load('vectorizer.joblib')
